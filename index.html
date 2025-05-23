@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>BosqueVivo.cl</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🌲 BosqueVivo.cl</div>
+    <ul class="nav-links">
+      <li onclick="showSection('inicio')">Inicio</li>
+      <li onclick="showSection('flora')">Flora y Fauna</li>
+      <li onclick="showSection('amenazas')">Amenazas</li>
+      <li onclick="showSection('atracciones')">Atracciones</li>
+      <li onclick="showSection('contacto')">Contacto</li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="inicio" class="section active">
+      <h1>Bienvenido a BosqueVivo.cl</h1>
+      <p>Explora la biodiversidad de Huilo Huilo</p>
+      <img src="img/mapa.jpg" alt="Mapa del bosque">
+    </section>
+
+    <section id="flora" class="section">
+      <h2>🌿 Flora y Fauna</h2>
+      <div class="card-grid">
+        <div class="card">
+          <img src="img/copihue.jpg" alt="Copihue">
+          <h3>Copihue</h3>
+          <p>Flor nacional endémica chilena con gran valor simbólico.</p>
+        </div>
+        <div class="card">
+          <img src="img/ulmo.jpg" alt="Ulmo">
+          <h3>Ulmo</h3>
+          <p>Árbol de flores blancas que produce néctar aromático.</p>
+        </div>
+        <div class="card">
+          <img src="img/medallita.jpg" alt="Medallita">
+          <h3>Medallita</h3>
+          <p>Enredadera suculenta de flor roja globo, endémica.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="amenazas" class="section">
+      <h2>⚠️ Amenazas</h2>
+      <ul>
+        <li>Turismo irresponsable y basura</li>
+        <li>Contaminación de ríos</li>
+        <li>Destrucción de hábitat</li>
+      </ul>
+    </section>
+
+    <section id="atracciones" class="section">
+      <h2>🧭 Atracciones</h2>
+      <div class="card-grid">
+        <div class="card">
+          <img src="img/palma.jpg" alt="Ruta Palma Blanca">
+          <h3>Ruta Palma Blanca</h3>
+          <p>Excursión de 2 días por la costa con avistamiento de aves.</p>
+        </div>
+        <div class="card">
+          <img src="img/camino.jpg" alt="Camino Escondido">
+          <h3>Camino Escondido</h3>
+          <p>Sendero desafiante con vistas montañosas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <h2>📩 Contacto</h2>
+      <p>Email: hola@sitioincreible.com</p>
+      <p>Teléfono: +56 9 1234 5678</p>
+      <p>Dirección: Calle 123, Ciudad, Chile</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
