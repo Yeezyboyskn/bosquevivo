@@ -1,85 +1,601 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>BosqueVivo.cl</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BosqueVivo.cl - Huilo Huilo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2d3e2d 0%, #1a2b1a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ccff00;
+            text-shadow: 0 0 20px #ccff00;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #ccff00;
+            text-shadow: 0 0 10px #ccff00;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23228B22" width="1200" height="800"/><circle fill="%23006400" cx="300" cy="200" r="150" opacity="0.3"/><circle fill="%2332CD32" cx="800" cy="300" r="100" opacity="0.2"/><circle fill="%23ccff00" cx="600" cy="500" r="80" opacity="0.4"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ccff00;
+            text-shadow: 0 0 30px #ccff00;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #a0a0a0;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ccff00, #99cc00);
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(204, 255, 0, 0.3);
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #ccff00; }
+            to { text-shadow: 0 0 40px #ccff00, 0 0 60px #ccff00; }
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ccff00;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #ccff00, #99cc00);
+            margin: 20px auto;
+        }
+
+        /* Flora y Fauna Grid */
+        .species-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .species-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(204, 255, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .species-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(204, 255, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .species-card:hover::before {
+            opacity: 1;
+        }
+
+        .species-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(204, 255, 0, 0.2);
+            border-color: #ccff00;
+        }
+
+        .species-name {
+            font-size: 1.5rem;
+            color: #ccff00;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .species-scientific {
+            font-style: italic;
+            color: #a0a0a0;
+            margin-bottom: 15px;
+        }
+
+        .species-description {
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* Información de zona */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(204, 255, 0, 0.1), rgba(153, 204, 0, 0.1));
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #ccff00;
+        }
+
+        .info-card h3 {
+            color: #ccff00;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Actividades */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .activity-card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .activity-card:hover {
+            border-color: #ccff00;
+            transform: scale(1.02);
+        }
+
+        .activity-image {
+            height: 200px;
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-image::before {
+            content: '🏞️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.7;
+        }
+
+        .activity-content {
+            padding: 30px;
+        }
+
+        .activity-title {
+            color: #ccff00;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Amenazas */
+        .threats-container {
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #ff4444;
+            margin-bottom: 30px;
+        }
+
+        .conservation-container {
+            background: rgba(0, 255, 0, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #44ff44;
+        }
+
+        .threats-list, .conservation-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .threats-list li, .conservation-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .threats-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+        }
+
+        .conservation-list li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 2px solid #ccff00;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-item {
+            color: #a0a0a0;
+        }
+
+        .contact-item strong {
+            color: #ccff00;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .copyright {
+            color: #666;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .species-grid, .activities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">🌲 BosqueVivo.cl</div>
-    <ul class="nav-links">
-      <li onclick="showSection('inicio')">Inicio</li>
-      <li onclick="showSection('flora')">Flora y Fauna</li>
-      <li onclick="showSection('amenazas')">Amenazas</li>
-      <li onclick="showSection('atracciones')">Atracciones</li>
-      <li onclick="showSection('contacto')">Contacto</li>
-    </ul>
-  </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">BosqueVivo.cl</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#flora">Flora</a></li>
+                    <li><a href="#fauna">Fauna</a></li>
+                    <li><a href="#actividades">Actividades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <section id="inicio" class="section active">
-      <h1>Bienvenido a BosqueVivo.cl</h1>
-      <p>Explora la biodiversidad de Huilo Huilo</p>
-      <img src="img/mapa.jpg" alt="Mapa del bosque">
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Huilo Huilo</h1>
+            <p>Reserva Biológica - Bosque Templado Lluvioso</p>
+            <a href="#flora" class="cta-button">Explorar la Reserva</a>
+        </div>
     </section>
 
+    <!-- Flora Section -->
     <section id="flora" class="section">
-      <h2>🌿 Flora y Fauna</h2>
-      <div class="card-grid">
-        <div class="card">
-          <img src="img/copihue.jpg" alt="Copihue">
-          <h3>Copihue</h3>
-          <p>Flor nacional endémica chilena con gran valor simbólico.</p>
+        <h2 class="section-title fade-in">Flora</h2>
+        <div class="species-grid">
+            <div class="species-card fade-in">
+                <h3 class="species-name">Medallita</h3>
+                <p class="species-scientific">Sarmienta repens</p>
+                <p class="species-description">La medallita es endémica chilena y se encuentra en diferentes zonas del país. Crece como enredadera sobre troncos, troncos de árboles y en algunos casos, sobre rocas en sectores húmedos o sombríos. Sus hojas son ovaladas de tipo suculenta y sus flores color rojo intenso, poseen forma de globo o campana.</p>
+            </div>
+
+            <div class="species-card fade-in">
+                <h3 class="species-name">Ulmo</h3>
+                <p class="species-scientific">Eucryphia cordifolia</p>
+                <p class="species-description">Originario de Chile y Argentina, se encuentra a lo largo de la Cordillera de los Andes y proviene de la familia de los Cunoniaceae. Posee un tronco grueso y copa amplia, llegando a medir sobre los 40 metros de alto. Sus flores color blanco marfil muestran todo su esplendor en verano, época en que las abejas recolectan su apreciado néctar aromático.</p>
+            </div>
+
+            <div class="species-card fade-in">
+                <h3 class="species-name">Copihue</h3>
+                <p class="species-scientific">Lapageria rosea</p>
+                <p class="species-description">Flor nacional y endémica chilena, que crece en los bosques templados del centro y sur del país. Florece entre los meses de febrero julio y ha inspirado diversas leyendas, canciones y poemas chilenos. Crece en suelos húmedos y bien drenados, con alto contenido de materia orgánica, como suelen ser los bosques de tipo Nothofagus.</p>
+            </div>
+
+            <div class="species-card fade-in">
+                <h3 class="species-name">Agaricus</h3>
+                <p class="species-scientific">Agaricus arvensis</p>
+                <p class="species-description">Es una especie de hongo comestible, de la familia Agaricaceae. Posee forma de sombrero convexo, su superficie es seca y su color es blanco, tomando un ligero color amarillo al madurar. Mide hasta 20 centímetros de largo y su anillo puede alcanzar hasta los 5 cms.</p>
+            </div>
         </div>
-        <div class="card">
-          <img src="img/ulmo.jpg" alt="Ulmo">
-          <h3>Ulmo</h3>
-          <p>Árbol de flores blancas que produce néctar aromático.</p>
-        </div>
-        <div class="card">
-          <img src="img/medallita.jpg" alt="Medallita">
-          <h3>Medallita</h3>
-          <p>Enredadera suculenta de flor roja globo, endémica.</p>
-        </div>
-      </div>
     </section>
 
-    <section id="amenazas" class="section">
-      <h2>⚠️ Amenazas</h2>
-      <ul>
-        <li>Turismo irresponsable y basura</li>
-        <li>Contaminación de ríos</li>
-        <li>Destrucción de hábitat</li>
-      </ul>
-    </section>
+    <!-- Fauna Section -->
+    <section id="fauna" class="section">
+        <h2 class="section-title fade-in">Fauna</h2>
+        <div class="species-grid">
+            <div class="species-card fade-in">
+                <h3 class="species-name">Chucao</h3>
+                <p class="species-scientific">Scelorchilus rubecula</p>
+                <p class="species-description">El chucao es una especie de ave paseriforme que habita en los bosques templados del sur de Chile y Argentina. Es conocido por su canto característico y ha sido reconocido como el embajador de la fauna chilena. Se alimenta principalmente de insectos y otros invertebrados, que busca rascando el suelo.</p>
+            </div>
 
-    <section id="atracciones" class="section">
-      <h2>🧭 Atracciones</h2>
-      <div class="card-grid">
-        <div class="card">
-          <img src="img/palma.jpg" alt="Ruta Palma Blanca">
-          <h3>Ruta Palma Blanca</h3>
-          <p>Excursión de 2 días por la costa con avistamiento de aves.</p>
+            <div class="species-card fade-in">
+                <h3 class="species-name">Monito del Monte</h3>
+                <p class="species-scientific">Dromiciops gliroides</p>
+                <p class="species-description">Marsupial chileno de pequeño tamaño. Mide 13 cm de cuerpo y 13 cm de cola. Habita desde el sur de la región del Maule, hasta la décima región de Los Lagos. Vive en los bosques, en pequeños nidos que construye en las ramas de coligüe. Se alimenta de huevos de aves e insectos que caza de noche.</p>
+            </div>
+
+            <div class="species-card fade-in" style="border-color: #ff4444;">
+                <h3 class="species-name">Ranita de Darwin</h3>
+                <p class="species-scientific">Rhinoderma darwinii</p>
+                <p class="species-description">La rana de Darwin es un pequeño anfibio endémico de Chile y Argentina, que habita principalmente en los bosques templados de la región patagónica. Esta especie está en peligro de extinción, con poblaciones que han disminuido drásticamente debido a enfermedades como la quitridiomicosis y la pérdida de hábitat.</p>
+            </div>
+
+            <div class="species-card fade-in" style="border-color: #ff4444;">
+                <h3 class="species-name">Huemul</h3>
+                <p class="species-scientific">Hippocamelus bisulcus</p>
+                <p class="species-description">El huemul chileno es un ciervo emblemático de Chile y Argentina, considerado un tesoro nacional. Este mamífero, que habita en la cordillera de los Andes, se encuentra en peligro de extinción y es conocido por su pelaje de color café oscuro. Es un símbolo del escudo nacional de Chile.</p>
+            </div>
         </div>
-        <div class="card">
-          <img src="img/camino.jpg" alt="Camino Escondido">
-          <h3>Camino Escondido</h3>
-          <p>Sendero desafiante con vistas montañosas.</p>
+    </section>
+
+    <!-- Información de la Zona -->
+    <section class="section">
+        <h2 class="section-title fade-in">Información de la Zona</h2>
+        <div class="info-grid">
+            <div class="info-card fade-in">
+                <h3>Ubicación y Población</h3>
+                <p>La Reserva Biológica Huilo Huilo, ubicada en la región de Los Ríos en Chile, no tiene una población residente permanente. A sus alrededores se encuentra el pueblo de Neltume que cuenta con 2.000 habitantes y Puerto Fuy que cuenta con cerca de 800 habitantes.</p>
+            </div>
+
+            <div class="info-card fade-in">
+                <h3>Límites Geográficos</h3>
+                <p>La Reserva está ubicada en la XIV Región de Los Ríos de Chile, con territorio dentro de las comunas de Panguipulli y Futrono, adyacente a los pueblos de Neltume, Puerto Fuy, Puerto Pirehueico y a la R.N. Mocho Choshuenco.</p>
+            </div>
+
+            <div class="info-card fade-in">
+                <h3>Clima</h3>
+                <p>El Bosque Húmedo Templado Patagónico se caracteriza por recibir abundantes precipitaciones durante todo el año y por sus veranos más templados (llegando en los días calurosos hasta los 30 grados Celsius).</p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="contacto" class="section">
-      <h2>📩 Contacto</h2>
-      <p>Email: hola@sitioincreible.com</p>
-      <p>Teléfono: +56 9 1234 5678</p>
-      <p>Dirección: Calle 123, Ciudad, Chile</p>
-    </section>
-  </main>
+    <!-- Actividades -->
+    <section id="actividades" class="section">
+        <h2 class="section-title fade-in">Atracciones Turísticas</h2>
+        <div class="activities-grid">
+            <div class="activity-card fade-in">
+                <div class="activity-image"></div>
+                <div class="activity-content">
+                    <h3 class="activity-title">Rafting Familiar</h3>
+                    <p>En esta aventura llena de adrenalina podrás sentir la fuerza de los rápidos del río Fuy. Durante 2 horas realizarás un descenso en balsa inflable, donde recorrerás un tramo de 11.5 kilómetros por este río de origen glaciar.</p>
+                </div>
+            </div>
 
-  <script src="script.js"></script>
+            <div class="activity-card fade-in">
+                <div class="activity-image"></div>
+                <div class="activity-content">
+                    <h3 class="activity-title">Sendero de Trekking Huilo Huilo</h3>
+                    <p>Ubicado en el Río Fuy, de origen glaciar corre por un cauce de roca volcánica. Al llegar al salto, el cauce se estrecha en un hilo de agua muy profundo con una caída de 37 metros de altura y 10 metros de ancho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenazas y Conservación -->
+    <section class="section">
+        <h2 class="section-title fade-in">Amenazas y Cuidados en la Zona</h2>
+        
+        <div class="threats-container fade-in">
+            <h3 style="color: #ff6666; margin-bottom: 15px;">Amenazas en Huilo Huilo por actividades humanas</h3>
+            <ul class="threats-list">
+                <li>Turismo no controlado: Daña la flora y fauna por exceso de visitantes y basura.</li>
+                <li>Explotación forestal cercana: Reduce el hábitat de animales como el pudú y fragmenta el bosque.</li>
+            </ul>
+        </div>
+
+        <div class="conservation-container fade-in">
+            <h3 style="color: #66ff66; margin-bottom: 15px;">Acciones para cuidar la zona</h3>
+            <ul class="conservation-list">
+                <li>Fomentar turismo sustentable: Controlar el acceso y educar a los visitantes.</li>
+                <li>Proteger y restaurar el bosque: Reforestar con especies nativas y cuidar los corredores biológicos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="footer">
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>Correo:</strong>
+                lupitabeltram@gmail.com
+            </div>
+            <div class="contact-item">
+                <strong>Contacto:</strong>
+                +56 9 2367 4321
+            </div>
+            <div class="contact-item">
+                <strong>Dirección:</strong>
+                calle 45 sur 0832
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>Huilo Huilo - 2025 © todos los derechos reservados</p>
+            <p>huilohuilo.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.8)';
+            }
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.species-card, .activity-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
