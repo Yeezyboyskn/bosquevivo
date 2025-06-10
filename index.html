@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BosqueVivo.cl - Huilo Huilo</title>
+    <title>BosqueVivo.cl - Huilo Huido</title>
     <style>
         * {
             margin: 0;
@@ -67,7 +67,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23228B22" width="1200" height="800"/><circle fill="%23006400" cx="300" cy="200" r="150" opacity="0.3"/><circle fill="%2332CD32" cx="800" cy="300" r="100" opacity="0.2"/><circle fill="%23ccff00" cx="600" cy="500" r="80" opacity="0.4"/></svg>');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/portada.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -200,6 +200,14 @@
             color: #e0e0e0;
         }
 
+        .species-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
         /* Información de zona */
         .info-grid {
             display: grid;
@@ -218,6 +226,14 @@
         .info-card h3 {
             color: #ccff00;
             font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .info-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
             margin-bottom: 15px;
         }
 
@@ -244,19 +260,10 @@
 
         .activity-image {
             height: 200px;
-            background: linear-gradient(45deg, #228B22, #32CD32);
+            background-size: cover;
+            background-position: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .activity-image::before {
-            content: '🏞️';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-            opacity: 0.7;
         }
 
         .activity-content {
@@ -400,24 +407,28 @@
         <h2 class="section-title fade-in">Flora</h2>
         <div class="species-grid">
             <div class="species-card fade-in">
+                <img src="img/medallita.jpg" alt="Medallita" class="species-image">
                 <h3 class="species-name">Medallita</h3>
                 <p class="species-scientific">Sarmienta repens</p>
                 <p class="species-description">La medallita es endémica chilena y se encuentra en diferentes zonas del país. Crece como enredadera sobre troncos, troncos de árboles y en algunos casos, sobre rocas en sectores húmedos o sombríos. Sus hojas son ovaladas de tipo suculenta y sus flores color rojo intenso, poseen forma de globo o campana.</p>
             </div>
 
             <div class="species-card fade-in">
+                <img src="img/ulmo.jpg" alt="Ulmo" class="species-image">
                 <h3 class="species-name">Ulmo</h3>
                 <p class="species-scientific">Eucryphia cordifolia</p>
                 <p class="species-description">Originario de Chile y Argentina, se encuentra a lo largo de la Cordillera de los Andes y proviene de la familia de los Cunoniaceae. Posee un tronco grueso y copa amplia, llegando a medir sobre los 40 metros de alto. Sus flores color blanco marfil muestran todo su esplendor en verano, época en que las abejas recolectan su apreciado néctar aromático.</p>
             </div>
 
             <div class="species-card fade-in">
+                <img src="img/copihue.jpg" alt="Copihue" class="species-image">
                 <h3 class="species-name">Copihue</h3>
                 <p class="species-scientific">Lapageria rosea</p>
                 <p class="species-description">Flor nacional y endémica chilena, que crece en los bosques templados del centro y sur del país. Florece entre los meses de febrero julio y ha inspirado diversas leyendas, canciones y poemas chilenos. Crece en suelos húmedos y bien drenados, con alto contenido de materia orgánica, como suelen ser los bosques de tipo Nothofagus.</p>
             </div>
 
             <div class="species-card fade-in">
+                <img src="img/agaricus.jpg" alt="Agaricus" class="species-image">
                 <h3 class="species-name">Agaricus</h3>
                 <p class="species-scientific">Agaricus arvensis</p>
                 <p class="species-description">Es una especie de hongo comestible, de la familia Agaricaceae. Posee forma de sombrero convexo, su superficie es seca y su color es blanco, tomando un ligero color amarillo al madurar. Mide hasta 20 centímetros de largo y su anillo puede alcanzar hasta los 5 cms.</p>
@@ -430,24 +441,28 @@
         <h2 class="section-title fade-in">Fauna</h2>
         <div class="species-grid">
             <div class="species-card fade-in">
+                <img src="img/chucao.jpg" alt="Chucao" class="species-image">
                 <h3 class="species-name">Chucao</h3>
                 <p class="species-scientific">Scelorchilus rubecula</p>
                 <p class="species-description">El chucao es una especie de ave paseriforme que habita en los bosques templados del sur de Chile y Argentina. Es conocido por su canto característico y ha sido reconocido como el embajador de la fauna chilena. Se alimenta principalmente de insectos y otros invertebrados, que busca rascando el suelo.</p>
             </div>
 
             <div class="species-card fade-in">
+                <img src="img/monito del monte.jpg" alt="Monito del Monte" class="species-image">
                 <h3 class="species-name">Monito del Monte</h3>
                 <p class="species-scientific">Dromiciops gliroides</p>
                 <p class="species-description">Marsupial chileno de pequeño tamaño. Mide 13 cm de cuerpo y 13 cm de cola. Habita desde el sur de la región del Maule, hasta la décima región de Los Lagos. Vive en los bosques, en pequeños nidos que construye en las ramas de coligüe. Se alimenta de huevos de aves e insectos que caza de noche.</p>
             </div>
 
             <div class="species-card fade-in" style="border-color: #ff4444;">
+                <img src="img/ranita de darwin.jpg" alt="Ranita de Darwin" class="species-image">
                 <h3 class="species-name">Ranita de Darwin</h3>
                 <p class="species-scientific">Rhinoderma darwinii</p>
                 <p class="species-description">La rana de Darwin es un pequeño anfibio endémico de Chile y Argentina, que habita principalmente en los bosques templados de la región patagónica. Esta especie está en peligro de extinción, con poblaciones que han disminuido drásticamente debido a enfermedades como la quitridiomicosis y la pérdida de hábitat.</p>
             </div>
 
             <div class="species-card fade-in" style="border-color: #ff4444;">
+                <img src="img/huemul.jpg" alt="Huemul" class="species-image">
                 <h3 class="species-name">Huemul</h3>
                 <p class="species-scientific">Hippocamelus bisulcus</p>
                 <p class="species-description">El huemul chileno es un ciervo emblemático de Chile y Argentina, considerado un tesoro nacional. Este mamífero, que habita en la cordillera de los Andes, se encuentra en peligro de extinción y es conocido por su pelaje de color café oscuro. Es un símbolo del escudo nacional de Chile.</p>
@@ -460,16 +475,19 @@
         <h2 class="section-title fade-in">Información de la Zona</h2>
         <div class="info-grid">
             <div class="info-card fade-in">
+                <img src="img/Ubicación y población.Jpg" alt="Ubicación y Población" class="info-image">
                 <h3>Ubicación y Población</h3>
                 <p>La Reserva Biológica Huilo Huilo, ubicada en la región de Los Ríos en Chile, no tiene una población residente permanente. A sus alrededores se encuentra el pueblo de Neltume que cuenta con 2.000 habitantes y Puerto Fuy que cuenta con cerca de 800 habitantes.</p>
             </div>
 
             <div class="info-card fade-in">
+                <img src="img/limites geograficos.jpg" alt="Límites Geográficos" class="info-image">
                 <h3>Límites Geográficos</h3>
                 <p>La Reserva está ubicada en la XIV Región de Los Ríos de Chile, con territorio dentro de las comunas de Panguipulli y Futrono, adyacente a los pueblos de Neltume, Puerto Fuy, Puerto Pirehueico y a la R.N. Mocho Choshuenco.</p>
             </div>
 
             <div class="info-card fade-in">
+                <img src="img/los lagos origen glaciar.jpg" alt="Clima" class="info-image">
                 <h3>Clima</h3>
                 <p>El Bosque Húmedo Templado Patagónico se caracteriza por recibir abundantes precipitaciones durante todo el año y por sus veranos más templados (llegando en los días calurosos hasta los 30 grados Celsius).</p>
             </div>
@@ -481,7 +499,7 @@
         <h2 class="section-title fade-in">Atracciones Turísticas</h2>
         <div class="activities-grid">
             <div class="activity-card fade-in">
-                <div class="activity-image"></div>
+                <div class="activity-image" style="background-image: url('img/rafting familiar.jpg');"></div>
                 <div class="activity-content">
                     <h3 class="activity-title">Rafting Familiar</h3>
                     <p>En esta aventura llena de adrenalina podrás sentir la fuerza de los rápidos del río Fuy. Durante 2 horas realizarás un descenso en balsa inflable, donde recorrerás un tramo de 11.5 kilómetros por este río de origen glaciar.</p>
@@ -489,7 +507,7 @@
             </div>
 
             <div class="activity-card fade-in">
-                <div class="activity-image"></div>
+                <div class="activity-image" style="background-image: url('img/sendero de trekking.jpg');"></div>
                 <div class="activity-content">
                     <h3 class="activity-title">Sendero de Trekking Huilo Huilo</h3>
                     <p>Ubicado en el Río Fuy, de origen glaciar corre por un cauce de roca volcánica. Al llegar al salto, el cauce se estrecha en un hilo de agua muy profundo con una caída de 37 metros de altura y 10 metros de ancho.</p>
@@ -503,6 +521,7 @@
         <h2 class="section-title fade-in">Amenazas y Cuidados en la Zona</h2>
         
         <div class="threats-container fade-in">
+            <img src="img/amenazas.jpg" alt="Amenazas" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
             <h3 style="color: #ff6666; margin-bottom: 15px;">Amenazas en Huilo Huilo por actividades humanas</h3>
             <ul class="threats-list">
                 <li>Turismo no controlado: Daña la flora y fauna por exceso de visitantes y basura.</li>
@@ -511,6 +530,7 @@
         </div>
 
         <div class="conservation-container fade-in">
+            <img src="img/acciones para cuidar la zona.jpg" alt="Acciones de conservación" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
             <h3 style="color: #66ff66; margin-bottom: 15px;">Acciones para cuidar la zona</h3>
             <ul class="conservation-list">
                 <li>Fomentar turismo sustentable: Controlar el acceso y educar a los visitantes.</li>
