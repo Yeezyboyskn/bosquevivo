@@ -104,6 +104,37 @@
             text-decoration: none;
             display: inline-block;
         }
+        .hero-logo {
+        width: 200px; /* Ajusta según el tamaño de tu logo */
+            height: 200px;
+            margin: 0 auto 30px;
+            border-radius: 50%; /* Esto crea el efecto circular */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 3px solid #ccff00;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(204, 255, 0, 0.3);
+        }
+
+        .hero-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Opcional: animación para el logo */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-logo:hover {
+        animation: pulse 2s infinite;
+        }   
 
         .cta-button:hover {
             transform: translateY(-3px);
@@ -465,11 +496,14 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Huilo Huilo</h1>
-            <p>Reserva Biológica - Bosque Templado Lluvioso</p>
-            <a href="#flora" class="cta-button">Explorar la Reserva</a>
-        </div>
+<div class="hero-content">
+    <div class="hero-logo">
+        <img src="img/logo.jpg" alt="BosqueVivo Logo">
+    </div>
+    <h1>Huilo Huido</h1>
+    <p>Reserva Biológica - Bosque Templado Lluvioso</p>
+    <a href="#flora" class="cta-button">Explorar la Reserva</a>
+</div>
     </section>
 
     <!-- Flora Section -->
